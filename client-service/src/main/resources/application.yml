@@ -1,0 +1,26 @@
+server:
+  port: 8091
+
+eureka:
+  client:
+    #after applications is run it will send notification to Eureka
+    initialInstanceInfoReplicationIntervalSeconds: 2
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8761/eureka/
+    lease:
+      duration: 5
+
+
+#default netflix balancer
+ribbon:
+  #refreshing balancing settings
+  serverlistRefreshInterval: 1000
+
+spring:
+  application:
+    name: client-service
+
+logging:
+  level:
+    org.clientservice: DEBUG
+    

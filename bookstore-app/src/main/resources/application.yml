@@ -33,13 +33,15 @@ logging:
   pattern.file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
   
 eureka:
-  instance:
-    leaseRenewalIntervalInSeconds: 1
-    leaseExpirationDurationInSeconds: 2
   client:
+    #after applications is run it will send notification to Eureka
+    initialInstanceInfoReplicationIntervalSeconds: 2
     serviceUrl:
       defaultZone: http://127.0.0.1:8761/eureka/
-    healthcheck:
-      enabled: true
     lease:
       duration: 5
+
+#default netflix balancer
+ribbon:
+  #refreshing balancing settings
+  serverlistRefreshInterval: 1000

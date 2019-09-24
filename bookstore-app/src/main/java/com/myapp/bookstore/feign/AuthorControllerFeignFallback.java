@@ -16,6 +16,7 @@ import java.util.List;
 @Component
 @Slf4j
 public class AuthorControllerFeignFallback implements AuthorControllerFeign {
+    
     @Override
     public List<Author> getTopAuthors(Date dateFrom, Date dateTo) {
         log.error("There was an error invoking getTopAuthors() method");
