@@ -1,4 +1,4 @@
-package com.myapp.bookstore.feign;
+package com.myapp.clientservice.feign;
 
 import com.myapp.bookstore.controller.AuthorController;
 import org.springframework.cloud.openfeign.FeignClient;

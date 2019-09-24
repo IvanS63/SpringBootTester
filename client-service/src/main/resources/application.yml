@@ -13,6 +13,8 @@ eureka:
 
 #default netflix balancer
 ribbon:
+  eureka:
+    enabled: false
   #refreshing balancing settings
   serverlistRefreshInterval: 1000
 
