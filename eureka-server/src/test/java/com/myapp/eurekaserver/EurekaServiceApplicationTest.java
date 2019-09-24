@@ -14,7 +14,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import java.util.Map;
 
 /**
- * ApplicationTest.
+ * Unit tests for {@link EurekaServiceApplication}.
  *
  * @author Ivan_Semenov
  */
@@ -29,13 +29,6 @@ public class EurekaServiceApplicationTest {
     public void catalogLoads() {
         @SuppressWarnings("rawtypes")
         ResponseEntity<Map> entity = new TestRestTemplate().getForEntity("http://localhost:" + port + "/eureka/apps", Map.class);
-        assertEquals(HttpStatus.OK, entity.getStatusCode());
-    }
-
-    @Test
-    public void adminLoads() {
-        @SuppressWarnings("rawtypes")
-        ResponseEntity<Map> entity = new TestRestTemplate().getForEntity("http://localhost:" + port + "/env", Map.class);
         assertEquals(HttpStatus.OK, entity.getStatusCode());
     }
 }
