@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Profile;
 
 @Profile("service_test")
 @TestConfiguration
-@ComponentScan(basePackages = {"com.myapp.springboottester"})
+@ComponentScan(basePackages = {"com.myapp.bookstore"})
 public class ServiceTestConfig {
 }
 

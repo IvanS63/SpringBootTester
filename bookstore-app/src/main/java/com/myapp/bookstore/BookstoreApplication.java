@@ -8,9 +8,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
-@ComponentScan({"com.myapp.springboottester"})
-@EntityScan("com.myapp.springboottester.entity")
-@EnableJpaRepositories("com.myapp.springboottester.repository")
+@ComponentScan({"com.myapp.bookstore"})
+@EntityScan("com.myapp.bookstore.entity")
+@EnableJpaRepositories("com.myapp.bookstore.repository")
 @EnableScheduling
 public class BookstoreApplication {
 

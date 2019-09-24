@@ -11,7 +11,7 @@
     <modules>
         <module>eureka-server</module>
         <module>client-service</module>
-        <module>bookstore-service</module>
+        <module>bookstore-app</module>
     </modules>
     
 

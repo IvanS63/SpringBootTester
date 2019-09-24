@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
  * @author Ivan_Semenov
  */
 @Component
-@Order(2)
+//@Order(2)
 public class BookStoreStartupRunner implements ApplicationRunner {
     private static final Logger logger = LoggerFactory.getLogger(BookStoreStartupRunner.class);
 

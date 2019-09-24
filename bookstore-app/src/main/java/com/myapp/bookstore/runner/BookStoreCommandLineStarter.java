@@ -14,7 +14,7 @@ import java.util.Arrays;
  * @author Ivan_Semenov
  */
 @Component
-@Order(1)
+//@Order(1)
 public class BookStoreCommandLineStarter implements CommandLineRunner {
     private static final Logger logger = LoggerFactory.getLogger(BookStoreCommandLineStarter.class);
 
