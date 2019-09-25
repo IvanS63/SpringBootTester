@@ -11,7 +11,7 @@ import java.util.List;
  * @author Ivan_Semenov
  */
 
-@RequestMapping("/client-app")
+@RequestMapping("client-app")
 public interface ClientController {
 
     List<Author> getTopAuthorsFromBookstoreApp();

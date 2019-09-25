@@ -2,6 +2,7 @@ package com.myapp.bookstore.controller.impl;
 
 import com.myapp.bookstore.controller.AuthorController;
 import com.myapp.bookstore.entity.Author;
+import com.myapp.bookstore.entity.Book;
 import com.myapp.bookstore.service.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -18,7 +19,7 @@ import java.util.List;
  * @author Ivan_Semenov
  */
 @RestController
-@RequestMapping("/authors")
+@RequestMapping("book-store/authors")
 public class AuthorControllerImpl implements AuthorController {
 
     @Autowired

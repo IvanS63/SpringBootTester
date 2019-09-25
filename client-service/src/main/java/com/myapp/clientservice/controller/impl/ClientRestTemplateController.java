@@ -6,9 +6,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
@@ -19,21 +19,21 @@ import java.util.List;
  *
  * @author Ivan_Semenov
  */
-@Component
+@RestController
 @Slf4j
 @Deprecated
 public class ClientRestTemplateController implements ClientController {
 
     @Autowired
-    private RestTemplate restTemplate;
+    private RestTemplate loadBalanced;
 
-    private static final String BOOKSTORE_APP_URL = "http://localhost:8090/authors/top?from=1990-01-01&to=2020-01-01";
+    private static final String BOOKSTORE_APP_URL = "http://BOOKSTORE-APP/book-store/authors/top?from=1990-01-01&to=2020-01-01";
 
     @RequestMapping(method = RequestMethod.GET, value = "/get-authors-v1")
     @Override
     public List<Author> getTopAuthorsFromBookstoreApp() {
         log.debug("getTopAuthorsFromBookstoreApp() - start:");
-        List<Author> authors = restTemplate.getForObject(BOOKSTORE_APP_URL, List.class);
+        List<Author> authors = loadBalanced.getForObject(BOOKSTORE_APP_URL, List.class);
         log.info("Response received: {}", authors);
         log.debug("getTopAuthorsFromBookstoreApp() - end:");
         return authors;
@@ -41,7 +41,7 @@ public class ClientRestTemplateController implements ClientController {
 
     @LoadBalanced //in case we have several instances of application for balancing.
     @Bean
-    public RestTemplate restTemplate() {
+    public RestTemplate loadBalanced() {
         return new RestTemplate();
     }
 

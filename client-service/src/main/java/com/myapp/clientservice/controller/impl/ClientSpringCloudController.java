@@ -5,9 +5,9 @@ import com.myapp.clientservice.controller.ClientController;
 import com.myapp.bookstore.feign.AuthorControllerFeign;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -21,7 +21,7 @@ import java.util.Locale;
  *
  * @author Ivan_Semenov
  */
-@Component
+@RestController
 @Slf4j
 public class ClientSpringCloudController implements ClientController {
 

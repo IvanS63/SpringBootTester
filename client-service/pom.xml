@@ -54,6 +54,13 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>com.netflix.ribbon</groupId>
+            <artifactId>ribbon-eureka</artifactId>
+        </dependency>
+
+
         <!-- For exception handling and custom ErrorController implementation -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

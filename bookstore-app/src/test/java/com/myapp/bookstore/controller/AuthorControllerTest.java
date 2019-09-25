@@ -58,7 +58,7 @@ public class AuthorControllerTest {
                         new Author().setId(AUTHOR1_ID),
                         new Author().setId(AUTHOR2_ID)));
 
-        mockMvc.perform(get("/authors/top?from=1990-01-01&to=2020-01-01")
+        mockMvc.perform(get("/book-store/authors/top?from=1990-01-01&to=2020-01-01")
                 .contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].id").value(AUTHOR1_ID))
