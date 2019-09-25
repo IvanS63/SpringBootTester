@@ -28,3 +28,8 @@ logging:
   level:
     org.clientservice: DEBUG
     
+#add URL for bookstore-app    
+bookstore-app:
+  ribbon:
+    listOfServers: http://localhost:8090
+    

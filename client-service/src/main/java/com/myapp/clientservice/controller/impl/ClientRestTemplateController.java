@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
@@ -29,7 +29,7 @@ public class ClientRestTemplateController implements ClientController {
 
     private static final String BOOKSTORE_APP_URL = "http://localhost:8090/authors/top?from=1990-01-01&to=2020-01-01";
 
-    @GetMapping("/get-authors-v1")
+    @RequestMapping(method = RequestMethod.GET, value = "/get-authors-v1")
     @Override
     public List<Author> getTopAuthorsFromBookstoreApp() {
         log.debug("getTopAuthorsFromBookstoreApp() - start:");

@@ -17,7 +17,7 @@ public class BookstoreApplication {
 	//To use debug profile use command following VM arguments:
 	//-Dspring.profiles.active=debug -Djava.awt.headless=false
 	
-	//To test go to: http://localhost:8090/book_store/authors/top?from=1990-01-01&to=2020-01-01
+	//To test go to: http://localhost:8090/book-store/authors/top?from=1990-01-01&to=2020-01-01
 	public static void main(String[] args) {
 		SpringApplication.run(BookstoreApplication.class, args);
 	}

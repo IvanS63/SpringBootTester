@@ -13,7 +13,8 @@
     <groupId>com.myapp</groupId>
     <artifactId>client-service</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <description>Demo project for Spring Boot</description>
+    <name>Client App</name>
+    <description>Imitates simple client app</description>
 
     <properties>
         <java.version>1.8</java.version>
@@ -81,8 +82,8 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
             </plugin>
         </plugins>
     </build>

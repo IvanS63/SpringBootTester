@@ -5,6 +5,7 @@ import com.myapp.bookstore.entity.Author;
 import com.myapp.bookstore.service.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,6 +18,7 @@ import java.util.List;
  * @author Ivan_Semenov
  */
 @RestController
+@RequestMapping("/authors")
 public class AuthorControllerImpl implements AuthorController {
 
     @Autowired

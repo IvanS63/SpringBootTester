@@ -2,11 +2,12 @@ package com.myapp.clientservice.controller.impl;
 
 import com.myapp.bookstore.entity.Author;
 import com.myapp.clientservice.controller.ClientController;
-import com.myapp.clientservice.feign.AuthorControllerFeign;
+import com.myapp.bookstore.feign.AuthorControllerFeign;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -27,7 +28,7 @@ public class ClientSpringCloudController implements ClientController {
     @Autowired
     private AuthorControllerFeign authorControllerFeign;
 
-    @GetMapping("/get-authors-v2")
+    @RequestMapping(method = RequestMethod.GET, value = "/get-authors-v2")
     @Override
     public List<Author> getTopAuthorsFromBookstoreApp() {
         log.debug("getTopAuthorsFromBookstoreApp() - start:");

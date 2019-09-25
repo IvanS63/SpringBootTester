@@ -1,4 +1,4 @@
-package com.myapp.clientservice.feign;
+package com.myapp.bookstore.feign;
 
 import com.myapp.bookstore.entity.Author;
 import lombok.extern.slf4j.Slf4j;

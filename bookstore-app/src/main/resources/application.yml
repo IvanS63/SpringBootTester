@@ -1,6 +1,6 @@
 server:
   port: 8090
-  servlet.context-path: /book_store
+  servlet.context-path: /book-store
 
 spring:
   application:
