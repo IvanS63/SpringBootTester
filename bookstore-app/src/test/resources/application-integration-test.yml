@@ -28,5 +28,7 @@ logging:
   
 eureka:
   client:
+    #to avoid unnecessary log messages in console
     register-with-eureka: false
+    fetch-registry: false
     enabled: false

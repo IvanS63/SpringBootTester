@@ -53,6 +53,12 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <!-- For exception handling and custom ErrorController implementation -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+        
         <dependency>
             <groupId>com.myapp</groupId>
             <artifactId>bookstore-app</artifactId>

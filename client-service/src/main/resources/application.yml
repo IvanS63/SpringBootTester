@@ -1,5 +1,7 @@
 server:
   port: 8091
+  #disable default white label error page and use ClientServiceErrorController instead
+  error.whitelabel.enable: false
 
 eureka:
   client:
