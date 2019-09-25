@@ -1,3 +1,7 @@
+spring:
+  application:
+    name: client-service
+
 server:
   port: 8091
   #disable default white label error page and use ClientServiceErrorController instead
@@ -12,17 +16,12 @@ eureka:
     lease:
       duration: 5
 
-
 #default netflix balancer
 ribbon:
   eureka:
     enabled: false
   #refreshing balancing settings
   serverlistRefreshInterval: 1000
-
-spring:
-  application:
-    name: client-service
 
 logging:
   level:
@@ -31,5 +30,5 @@ logging:
 #add URL for bookstore-app    
 bookstore-app:
   ribbon:
-    listOfServers: http://localhost:8090
+    listOfServers: bookstore-app:8090
     

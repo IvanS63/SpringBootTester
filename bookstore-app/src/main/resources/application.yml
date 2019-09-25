@@ -43,6 +43,12 @@ eureka:
 #default netflix balancer
 ribbon:
   eureka:
-    enabled: false
+    enabled: true
+    ReadTimeout: 2000
+    ConnectTimeout: 1000
   #refreshing balancing settings
   serverlistRefreshInterval: 1000
+  
+feign:
+  hystrix:
+    enabled: true
