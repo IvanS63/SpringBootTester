@@ -10,7 +10,8 @@ import org.springframework.cloud.openfeign.FeignClient;
  *
  * @author Ivan_Semenov
  */
-@FeignClient(value = "bookstore-app",
+@FeignClient(
+        name = "bookstore-app",
         url = "/book-store/authors",
         fallbackFactory = AuthorControllerFeignFallbackFactory.class)
 public interface AuthorControllerFeign extends AuthorController {

@@ -32,7 +32,6 @@ import java.util.Locale;
  */
 @ActiveProfiles("service-test")//Just to test working with profiles
 @ContextConfiguration(classes = ServiceTestConfig.class)
-@Ignore
 public class BookServicesTest extends AbstractJUnit4SpringContextTests {
 
     private static final Integer BOOK_ID = 2;

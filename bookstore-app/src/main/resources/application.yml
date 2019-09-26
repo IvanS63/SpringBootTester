@@ -2,9 +2,6 @@ server:
   port: 8090
 
 spring:
-  application:
-    name: bookstore-app
-  
   datasource:
     platform: h2
     driver-class-name: org.h2.Driver

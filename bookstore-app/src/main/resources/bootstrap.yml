@@ -1,0 +1,6 @@
+# Spring Cloud uses the information in bootstrap.yml at service startup 
+# to discover the Eureka service registry and register the service and 
+# its spring.application.name, host, port, etc. 
+spring:
+  application:
+    name: bookstore-app
