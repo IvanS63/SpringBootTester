@@ -1,9 +1,7 @@
 # Spring Cloud + Spring Boot Application Example
-==============
 Simple example for Spring Cloud+Spring Boot applications.
 
 ## Technologies
-==============
 - Maven
 - Java 8
 - Spring Cloud (Eureka, Ribbon) 
@@ -12,10 +10,11 @@ Simple example for Spring Cloud+Spring Boot applications.
 - HSQLDB
 
 
+==============
 The Application contains the modules:
--Eureka Server
--Book store Applicatiom
--Client Application
+- Eureka Server
+- Book store Application
+- Client Application
 
 
 ### Bookstore Application
@@ -47,5 +46,3 @@ Workflow
 1. Run Eureka Server App (http://localhost:8761/)
 2. Run Bookstore App (http://localhost:8090/book_store/authors/top?from=1990-01-01&to=2020-01-01)
 3. Run Client App (http://localhost:8091/client-app/get-authors-v1 - for checking Rest Template Functionality, http://localhost:8091/client-app/get-authors-v2 - to check Feign Client example).
-
-Application provides unit tests with different Spring profiles for each layer and also one integration test for the whole applications.
