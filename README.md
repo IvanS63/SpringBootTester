@@ -8,6 +8,7 @@ Simple example for Spring Cloud+Spring Boot applications.
 - Spring Boot
 - Spring Data JPA
 - HSQLDB
+- Liquibase
 
 
 
@@ -21,6 +22,7 @@ The Application contains the modules:
 ### Bookstore Application
 This application represents book online store with the following business logic:
 · Keeps list of books and authors objects (CRUD operations) by the means of Spring Data JPA.
+· Initial database is created and populated by Liquibase scripts.
 · Increment counter of views for each book object.
 · Attach author to each object
 · Track all sold books for each author

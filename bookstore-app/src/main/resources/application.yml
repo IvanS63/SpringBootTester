@@ -17,9 +17,13 @@ spring:
   jpa:
     database: h2
     hibernate:
-      ddl-auto: create
+      ddl-auto: none
       dialect: org.hibernate.dialect.HSQLDialect
     show-sql: true
+    
+  liquibase:
+    enabled: true
+    change-log: classpath:/db/db_changelog.xml
     
 logging:
   level:
@@ -51,3 +55,4 @@ ribbon:
 feign:
   hystrix:
     enabled: true
+    
