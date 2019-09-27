@@ -53,8 +53,8 @@ public class BookServicesTest extends AbstractJUnit4SpringContextTests {
 
         authorService.add(author1
                 .setBooks(Arrays.asList(
-                        new Book("Some Book Tilte 1", 1000).setAuthor(author1),
-                        new Book("Some Book Tilte 2", 2000).setAuthor(author1).setSoldDate(new Date()),
+                        new Book("Some Book Tilte 1", 1000).setAuthor(author1).setSoldDate(new Date()),
+                        new Book("Some Book Tilte 2", 2000).setAuthor(author1),
                         new Book("Some Book Tilte 3", 3000).setAuthor(author1).setSoldDate(new Date()),
                         new Book("Some Book Tilte 4", 4000).setAuthor(author1).setSoldDate(new Date()))));
         authorService.add(author2

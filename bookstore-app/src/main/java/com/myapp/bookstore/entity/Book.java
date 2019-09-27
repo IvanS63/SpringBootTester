@@ -30,7 +30,7 @@ import java.util.Date;
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "book_seq")
-    @SequenceGenerator(name = "book_seq", sequenceName = "book_seq", initialValue = 1)
+    @SequenceGenerator(name = "book_seq", sequenceName = "book_seq")
     private Integer id;
 
     @Column(name = "title")
