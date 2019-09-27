@@ -1,7 +1,3 @@
-spring:
-  application:
-    name: client-service
-
 server:
   port: 8091
   #disable default white label error page and use ClientServiceErrorController instead
@@ -15,7 +11,8 @@ eureka:
       defaultZone: http://127.0.0.1:8761/eureka/
     lease:
       duration: 5
-
+    instance:
+      preferIpAddress: true
 
 logging:
   level:

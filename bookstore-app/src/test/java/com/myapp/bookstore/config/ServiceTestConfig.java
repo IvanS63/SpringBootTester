@@ -10,7 +10,7 @@ import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Profile;
 
-@Profile("service_test")
+@Profile("service-test")
 @TestConfiguration
 @ComponentScan(basePackages = {"com.myapp.bookstore"})
 public class ServiceTestConfig {

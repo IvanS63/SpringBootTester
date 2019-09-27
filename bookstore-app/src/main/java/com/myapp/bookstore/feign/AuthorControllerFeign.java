@@ -12,7 +12,7 @@ import org.springframework.cloud.openfeign.FeignClient;
  */
 @FeignClient(
         name = "bookstore-app",
-        url = "/book-store/authors",
+        path = "/book-store/authors",
         fallbackFactory = AuthorControllerFeignFallbackFactory.class)
 public interface AuthorControllerFeign extends AuthorController {
 }
