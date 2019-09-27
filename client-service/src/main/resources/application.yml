@@ -1,0 +1,25 @@
+server:
+  port: 8091
+  #disable default white label error page and use ClientServiceErrorController instead
+  error.whitelabel.enable: false
+
+eureka:
+  client:
+    #after applications is run it will send notification to Eureka
+    initialInstanceInfoReplicationIntervalSeconds: 2
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8761/eureka/
+    lease:
+      duration: 5
+    instance:
+      preferIpAddress: true
+
+logging:
+  level:
+    org.clientservice: DEBUG
+    
+#add URL for bookstore-app    
+bookstore-app:
+  ribbon:
+    listOfServers: bookstore-app:8090
+    
