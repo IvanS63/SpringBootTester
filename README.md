@@ -28,10 +28,7 @@ This application represents book online store with the following business logic:
 · Emulating logic for annual price changing for each book by spring scheduler. 
 · After running of application a few price changes should happened in real-time with pre-defined schedule and logged in the console
 
-To run application SpringBootApplication.java class should be run.
-To check the results the following link should be used: http://localhost:8090/book_store/authors/top?from=1990-01-01&to=2020-01-01
-
-Application provides unit tests with different Spring profiles for each layer and also one integration test for the whole applications.
+Integration and unit tests are provided.
 
 
 ### Eureka Server Application
@@ -45,6 +42,6 @@ Represents simple Client Application that sends requests to Bookstore Applicatio
 Workflow
 ========
 1. Run mvn clean install from the root directory.
-1. Run Eureka Server App (http://localhost:8761/).
-2. Run Bookstore App (http://localhost:8090/book_store/authors/top?from=1990-01-01&to=2020-01-01).
-3. Run Client App (http://localhost:8091/client-app/get-authors-v1 - for checking Rest Template Functionality, http://localhost:8091/client-app/get-authors-v2 - to check Feign Client example).
+2. Run Eureka Server App (http://localhost:8761/).
+3. Run Bookstore App (http://localhost:8090/book-store/authors/top?from=1990-01-01&to=2020-01-01).
+4. Run Client App (http://localhost:8091/client-app/get-authors-v1 - for checking Rest Template Functionality, http://localhost:8091/client-app/get-authors-v2 - to check Feign Client example).
