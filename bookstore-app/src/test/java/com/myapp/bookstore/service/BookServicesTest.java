@@ -111,7 +111,7 @@ public class BookServicesTest extends AbstractJUnit4SpringContextTests {
     public void testIncreasePriceByAnnualPercent() {
         bookService.increasePriceByAnnualPercent(10);
         Book book = bookService.findById(BOOK_ID);
-        assertEquals((Integer) 1100, book.getPrice());
+        assertEquals((Integer) 2200, book.getPrice());
     }
 
     @Test

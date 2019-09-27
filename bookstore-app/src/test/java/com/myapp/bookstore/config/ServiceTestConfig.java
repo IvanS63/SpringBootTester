@@ -6,7 +6,9 @@ package com.myapp.bookstore.config;
  * @author Ivan_Semenov
  */
 
+import liquibase.integration.spring.SpringLiquibase;
 import org.springframework.boot.test.context.TestConfiguration;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Profile;
 
@@ -14,5 +16,11 @@ import org.springframework.context.annotation.Profile;
 @TestConfiguration
 @ComponentScan(basePackages = {"com.myapp.bookstore"})
 public class ServiceTestConfig {
+    @Bean
+    public SpringLiquibase liquibase() {
+        SpringLiquibase liquibase = new SpringLiquibase();
+        liquibase.setShouldRun(false);
+        return liquibase;
+    }
 }
 
