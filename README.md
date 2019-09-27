@@ -10,7 +10,8 @@ Simple example for Spring Cloud+Spring Boot applications.
 - HSQLDB
 
 
-==============
+
+## Functionality
 The Application contains the modules:
 - Eureka Server
 - Book store Application
@@ -43,6 +44,7 @@ Represents simple Client Application that sends requests to Bookstore Applicatio
 
 Workflow
 ========
-1. Run Eureka Server App (http://localhost:8761/)
-2. Run Bookstore App (http://localhost:8090/book_store/authors/top?from=1990-01-01&to=2020-01-01)
+1. Run mvn clean install from the root directory.
+1. Run Eureka Server App (http://localhost:8761/).
+2. Run Bookstore App (http://localhost:8090/book_store/authors/top?from=1990-01-01&to=2020-01-01).
 3. Run Client App (http://localhost:8091/client-app/get-authors-v1 - for checking Rest Template Functionality, http://localhost:8091/client-app/get-authors-v2 - to check Feign Client example).
