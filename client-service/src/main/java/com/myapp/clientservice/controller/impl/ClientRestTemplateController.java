@@ -25,7 +25,7 @@ import java.util.List;
 public class ClientRestTemplateController implements ClientController {
 
     @Autowired
-    private RestTemplate loadBalanced;
+    private RestTemplate restTemplate;
 
     private static final String BOOKSTORE_APP_URL = "http://BOOKSTORE-APP/book-store/authors/top?from=1990-01-01&to=2020-01-01";
 
@@ -33,16 +33,10 @@ public class ClientRestTemplateController implements ClientController {
     @Override
     public List<Author> getTopAuthorsFromBookstoreApp() {
         log.debug("getTopAuthorsFromBookstoreApp() - start:");
-        List<Author> authors = loadBalanced.getForObject(BOOKSTORE_APP_URL, List.class);
+        List<Author> authors = restTemplate.getForObject(BOOKSTORE_APP_URL, List.class);
         log.info("Response received: {}", authors);
         log.debug("getTopAuthorsFromBookstoreApp() - end:");
         return authors;
-    }
-
-    @LoadBalanced //in case we have several instances of application for balancing.
-    @Bean
-    public RestTemplate loadBalanced() {
-        return new RestTemplate();
     }
 
 }
