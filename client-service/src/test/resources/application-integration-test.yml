@@ -1,0 +1,13 @@
+logging:
+  level:
+    org.springframework.web: ERROR
+    myapp.clientservice: DEBUG
+  
+eureka:
+  client:
+    enabled: false
+    
+#add URL for bookstore-app    
+bookstore-app:
+  ribbon:
+    listOfServers: bookstore-app:8090

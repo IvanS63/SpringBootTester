@@ -4,11 +4,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.myapp.bookstore.entity.Author;
-import com.myapp.bookstore.entity.Book;
-import com.myapp.bookstore.service.AuthorService;
-import com.myapp.bookstore.service.BookService;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +13,6 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-
-import java.util.Arrays;
-import java.util.Date;
 
 /**
  * Author book store application integration test.
@@ -32,12 +24,6 @@ import java.util.Date;
 @AutoConfigureMockMvc
 @ActiveProfiles("integration-test") //will automatically use properties from application-integration-test.yml
 public class BookStoreIntegrationTest {
-
-    @Autowired
-    private BookService bookService;
-
-    @Autowired
-    private AuthorService authorService;
 
     @Autowired
     private MockMvc mockMvc;
