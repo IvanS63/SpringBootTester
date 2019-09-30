@@ -6,8 +6,17 @@ logging:
 eureka:
   client:
     enabled: false
-    
+
+#to allow overriding rest template bean for tests
+spring:
+   main:
+     allow-bean-definition-overriding: true
+     
+ribbon:
+  eureka:
+    enabled: true
+             
 #add URL for bookstore-app    
 bookstore-app:
   ribbon:
-    listOfServers: bookstore-app:8090
+    listOfServers: bookstore-app:8080

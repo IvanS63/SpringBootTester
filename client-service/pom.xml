@@ -19,7 +19,7 @@
     <properties>
         <java.version>1.8</java.version>
         <spring-cloud.version>Greenwich.SR3</spring-cloud.version>
-        <hoverfly.version>0.8.1</hoverfly.version>
+        <hoverfly.version>0.12.2</hoverfly.version>
     </properties>
 
     <dependencies>
@@ -83,6 +83,7 @@
             <groupId>io.specto</groupId>
             <artifactId>hoverfly-java</artifactId>
             <version>${hoverfly.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

@@ -6,7 +6,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.myapp.bookstore.feign.AuthorControllerFeign;
+import com.myapp.clientservice.config.IntegrationTestConfig;
 import com.netflix.discovery.EurekaClient;
 import io.specto.hoverfly.junit.rule.HoverflyRule;
 import org.junit.ClassRule;
@@ -17,13 +17,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.context.annotation.Bean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.TestPropertySource;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.web.client.RestTemplate;
 
 /**
  * Integration tests for Clientservice-App with Hoverfly stubbing.
@@ -34,17 +32,14 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootTest
 @AutoConfigureMockMvc
 @ActiveProfiles("integration-test")
-@Ignore
+@ContextConfiguration(classes = IntegrationTestConfig.class)
 public class ClientApplicationIntegrationTest {
 
     @MockBean
     private EurekaClient eurekaClient;
     
-    @MockBean
-    private AuthorControllerFeign authorControllerFeign;
-    
     @ClassRule
-    public static HoverflyRule hoverflyRule = HoverflyRule
+    public static final HoverflyRule hoverflyRule = HoverflyRule
             .inSimulationMode(SIMULATION_SOURCE).printSimulationData();
 
     @Autowired
@@ -59,6 +54,7 @@ public class ClientApplicationIntegrationTest {
     }
 
     @Test
+    @Ignore //TODO investigate test failure
     public void testGetTopAuthorsV2() throws Exception {
         mockMvc.perform(get("/client-app/get-authors-v2")
                 .contentType(MediaType.APPLICATION_JSON_UTF8))
