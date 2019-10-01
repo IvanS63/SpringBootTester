@@ -2,6 +2,7 @@ package com.myapp.bookstore.service;
 
 import com.myapp.bookstore.entity.Author;
 import com.myapp.bookstore.entity.Book;
+import org.springframework.lang.NonNull;
 
 import java.util.Date;
 import java.util.List;
@@ -13,13 +14,13 @@ import java.util.List;
  */
 public interface AuthorService {
 
-    void add(Author author);
+    void add(@NonNull Author author);
 
-    void remove(Author author);
+    void remove(@NonNull Author author);
 
     List<Author> getAll();
 
-    List<Book> getSoldBooks(Author author);
+    List<Book> getSoldBooks(@NonNull Author author);
 
     List<Author> getTopSellingAuthors(Date dateFrom, Date dateTo);
 }

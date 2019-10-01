@@ -16,7 +16,7 @@ import java.util.List;
  * @author Ivan_Semenov
  */
 @Repository
-public interface AuthorDao extends JpaRepository<Author, Integer> {
+public interface AuthorRepository extends JpaRepository<Author, Integer> {
 
     String TOP_AUTHORS_BY_MONTH_SOLD_BOOK_QUERY = "SELECT a.id, a.name, SUM(b.price) as month_total_price " +
             "FROM author a " +

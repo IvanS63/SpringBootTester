@@ -3,14 +3,13 @@ package com.myapp.bookstore.controller;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.myapp.bookstore.entity.Author;
-import com.myapp.bookstore.repository.AuthorDao;
-import com.myapp.bookstore.repository.BookDao;
+import com.myapp.bookstore.repository.AuthorRepository;
+import com.myapp.bookstore.repository.BookRepository;
 import com.myapp.bookstore.service.AuthorService;
 import com.myapp.bookstore.service.BookService;
 import org.junit.Test;
@@ -40,10 +39,10 @@ public class AuthorControllerTest {
     private AuthorService authorService;
 
     @MockBean
-    private AuthorDao authorDao;
+    private AuthorRepository authorRepository;
 
     @MockBean
-    private BookDao bookDao;
+    private BookRepository bookRepository;
 
     @MockBean
     private BookService bookService;
