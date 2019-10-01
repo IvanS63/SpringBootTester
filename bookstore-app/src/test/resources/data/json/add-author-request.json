@@ -1,0 +1,12 @@
+{
+  "updateEventType": "CREATE",
+  "author": {
+    "name": "John Tolkien",
+    "books": [
+      {
+        "title": "Lord of The Rings",
+        "sold": 1569854566485
+      }
+    ]
+  }
+}
