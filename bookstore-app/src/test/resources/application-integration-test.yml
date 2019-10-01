@@ -37,3 +37,6 @@ eureka:
     fetch-registry: false
     enabled: false
     
+kafka:
+  enabled: false
+    

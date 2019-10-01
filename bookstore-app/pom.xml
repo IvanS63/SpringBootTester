@@ -21,6 +21,7 @@
         <spring-cloud.version>Greenwich.SR3</spring-cloud.version>
         <hsqldb.version>2.4.1</hsqldb.version>
         <h2.version>1.4.199</h2.version>
+        <testcontainers-kafka.version>1.8.0</testcontainers-kafka.version>
     </properties>
 
     <dependencies>
@@ -53,16 +54,48 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         
+        <!--Orika-->
+        <dependency>
+            <groupId>net.rakugakibox.spring.boot</groupId>
+            <artifactId>orika-spring-boot-starter</artifactId>
+            <version>1.8.0</version>
+        </dependency>
+        
+        <!--Kafka-->
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka</artifactId>
+        </dependency>
+        
+        <!--Lombok-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
+        
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>com.myapp</groupId>
+            <artifactId>kafka-client-app</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+
+        <!--Test Containers-->
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>kafka</artifactId>
+            <version>${testcontainers-kafka.version}</version>
+            <scope>test</scope>
+        </dependency>
+        
+        
         <!-- HyperSQL and H2 dependencies -->
         <dependency>
             <groupId>org.hsqldb</groupId>

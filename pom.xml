@@ -12,6 +12,7 @@
         <module>eureka-server</module>
         <module>client-service</module>
         <module>bookstore-app</module>
+        <module>kafka-client-app</module>
     </modules>
     
 
