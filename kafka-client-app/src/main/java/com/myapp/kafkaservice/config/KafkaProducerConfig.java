@@ -1,6 +1,6 @@
 package com.myapp.kafkaservice.config;
 
-import com.myapp.kafkaservice.util.CustomRequestSerializer;
+import com.myapp.kafkaservice.util.AuthorRequestSerializer;
 import com.myapp.kafkaservice.dto.SendRequestDto;
 import org.apache.kafka.clients.admin.AdminClientConfig;
 import org.apache.kafka.clients.producer.ProducerConfig;
@@ -32,7 +32,7 @@ public class KafkaProducerConfig {
         Map<String, Object> configProps = new HashMap<>();
         configProps.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, servers);
         configProps.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
-        configProps.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, CustomRequestSerializer.class);
+        configProps.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, AuthorRequestSerializer.class);
         configProps.put(ProducerConfig.MAX_BLOCK_MS_CONFIG, "60000");//message timeout
         return new DefaultKafkaProducerFactory<>(configProps);
     }

@@ -11,7 +11,7 @@
             </not>
         </preConditions>
         <createTable tableName="author"> 
-            <column name="id" type="BIGINT">
+            <column name="id" type="BIGINT" autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="name" type="VARCHAR(255)"/>
@@ -28,7 +28,7 @@
             </not>
         </preConditions>
         <createTable tableName="book">
-            <column name="id" type="BIGINT">
+            <column name="id" type="BIGINT" autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="title" type="VARCHAR(255)"/>
@@ -46,24 +46,6 @@
                                  deferrable="false"
                                  initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
                                  referencedColumnNames="id" referencedTableName="author"/>
-    </changeSet>
-
-    <changeSet id="create Book sequence" author="Ivan_Semenov">
-        <preConditions onFail="MARK_RAN">
-            <not>
-                <sequenceExists sequenceName="book_seq"/>
-            </not>
-        </preConditions>
-        <createSequence sequenceName="book_seq"/>
-    </changeSet>
-
-    <changeSet id="Create Author sequence" author="Ivan_Semenov">
-        <preConditions onFail="MARK_RAN">
-            <not>
-                <sequenceExists sequenceName="author_seq"/>
-            </not>
-        </preConditions>
-        <createSequence sequenceName="author_seq"/>
     </changeSet>
     
 </databaseChangeLog>

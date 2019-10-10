@@ -8,9 +8,8 @@
         <preConditions onFail="MARK_RAN">
             <tableExists tableName="author"/>
         </preConditions>
-        <loadUpdateData
+        <loadData
                 tableName="author"
-                primaryKey="id"
                 file="db/data/authors.csv"/>
     </changeSet>
 
@@ -18,9 +17,8 @@
         <preConditions onFail="MARK_RAN">
             <tableExists tableName="book"/>
         </preConditions>
-        <loadUpdateData
+        <loadData
                 tableName="book"
-                primaryKey="id"
                 file="db/data/books.csv"/>
     </changeSet>
 

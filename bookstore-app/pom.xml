@@ -21,7 +21,7 @@
         <spring-cloud.version>Greenwich.SR3</spring-cloud.version>
         <hsqldb.version>2.4.1</hsqldb.version>
         <h2.version>1.4.199</h2.version>
-        <testcontainers-kafka.version>1.8.0</testcontainers-kafka.version>
+        <testcontainers.version>1.12.2</testcontainers.version>
     </properties>
 
     <dependencies>
@@ -90,11 +90,16 @@
         <!--Test Containers-->
         <dependency>
             <groupId>org.testcontainers</groupId>
-            <artifactId>kafka</artifactId>
-            <version>${testcontainers-kafka.version}</version>
+            <artifactId>testcontainers</artifactId>
+            <version>${testcontainers.version}</version>
             <scope>test</scope>
         </dependency>
-        
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>kafka</artifactId>
+            <version>${testcontainers.version}</version>
+            <scope>test</scope>
+        </dependency>
         
         <!-- HyperSQL and H2 dependencies -->
         <dependency>

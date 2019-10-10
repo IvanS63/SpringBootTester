@@ -19,6 +19,8 @@ public interface AuthorService {
     void remove(@NonNull Author author);
 
     List<Author> getAll();
+    
+    Author findByName(String name);
 
     List<Book> getSoldBooks(@NonNull Author author);
 

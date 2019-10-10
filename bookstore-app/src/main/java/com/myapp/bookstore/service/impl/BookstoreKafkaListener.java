@@ -9,10 +9,11 @@ import com.myapp.kafkaservice.dto.enums.UpdateEventType;
 import lombok.extern.slf4j.Slf4j;
 import ma.glasnost.orika.MapperFacade;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
+
+import java.util.Objects;
 
 /**
  * KafkaListener.
@@ -34,13 +35,17 @@ public class BookstoreKafkaListener {
     public void receiveMessage(SendRequestDto sendRequestDto) {
         log.debug("Received request {} from topic: ", sendRequestDto, "author-request-dto");
         UpdateEventType updateEventType = sendRequestDto.getUpdateEventType();
-        Author author = mapperFacade.map(sendRequestDto.getAuthor(), Author.class);
         switch (updateEventType) {
             case CREATE:
-                authorService.add(author);
+                authorService.add(mapperFacade.map(sendRequestDto.getAuthor(), Author.class));
                 break;
             case DELETE:
-                authorService.remove(author);
+                Author author = authorService.findByName(sendRequestDto.getAuthor().getName());
+                if (Objects.nonNull(author)) {
+                    authorService.remove(author);
+                } else {
+                    log.warn("No author with name = {} has been found for being deleted", sendRequestDto.getAuthor().getName());
+                }
                 break;
             default:
                 throw new IllegalArgumentException(format("Unknown updateEventType: %s", updateEventType));

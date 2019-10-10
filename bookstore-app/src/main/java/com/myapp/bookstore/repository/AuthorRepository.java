@@ -33,4 +33,6 @@ public interface AuthorRepository extends JpaRepository<Author, Integer> {
             nativeQuery = true)
     List<Author> getTopSellingAuthors(@Param("dateFrom") Date dateFrom,
                                       @Param("dateTo") Date dateTo);
+
+    Author findByName(String name);
 }

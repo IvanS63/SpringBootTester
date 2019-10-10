@@ -1,5 +1,6 @@
 package com.myapp.bookstore.config;
 
+import com.myapp.bookstore.util.SendRequestDeserializer;
 import com.myapp.kafkaservice.dto.SendRequestDto;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
@@ -24,6 +25,7 @@ import java.util.Map;
 @Configuration
 @ConditionalOnProperty("kafka.enabled")
 public class KafkaConsumerConfig {
+    
     @Value("${kafka-service-app.bootstrap-servers}")
     private String bootstrapAddress;
 
@@ -33,7 +35,7 @@ public class KafkaConsumerConfig {
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress);
         props.put(ConsumerConfig.GROUP_ID_CONFIG, "test-consumer-group");
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
-        props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+        props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, SendRequestDeserializer.class);
         return new DefaultKafkaConsumerFactory<>(props);
     }
 

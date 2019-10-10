@@ -20,4 +20,6 @@ public interface BookRepository extends JpaRepository<Book, Integer> {
     @Modifying
     @Query(value = "UPDATE book SET price = price + price*:percent/100", nativeQuery = true)
     void increasePriceByAnnualPercent(@Param("percent") Integer percent);
+
+    Book findByTitle(String title);
 }
