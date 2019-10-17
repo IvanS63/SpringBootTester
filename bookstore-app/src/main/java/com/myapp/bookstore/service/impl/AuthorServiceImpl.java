@@ -54,13 +54,21 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
-    public List<Author> getTopSellingAuthors(Date dateFrom, Date dateTo) {
+    public List<Author> getTopSellingAuthorsByDateRange(Date dateFrom, Date dateTo) {
         if (dateTo.before(dateFrom)) {
             throw new IllegalArgumentException("Incorrect date range");
         }
         log.debug("getTopSellingAuthors() - start: dateFrom = {}, dateTo = {}", dateFrom, dateTo);
-        List<Author> authors = authorRepository.getTopSellingAuthors(dateFrom, dateTo);
+        List<Author> authors = authorRepository.getTopSellingAuthorsByDateRange(dateFrom, dateTo);
         log.debug("getTopSellingAuthors() - end: result size = {}", authors.size());
         return authors;
+    }
+
+    @Override
+    public List<Author> getAuthorsFilteredByParams(String name, Integer amountOfBooks, Integer earnings, Integer amountOfSoldBooks) {
+        log.debug("getAuthorsFilteredByParams() - start: name = {}, amountOfBooks = {}, earnings = {}, amountOfSoldBooks = {}", name, amountOfBooks, earnings, amountOfSoldBooks);
+        List<Author> result = authorRepository.getAuthorsFilteredByParams(name, amountOfBooks, earnings, amountOfSoldBooks);
+        log.debug("getAuthorsFilteredByParams() - end: result size = {}", result);
+        return result;
     }
 }

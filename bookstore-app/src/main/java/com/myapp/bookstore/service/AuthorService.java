@@ -19,10 +19,17 @@ public interface AuthorService {
     void remove(@NonNull Author author);
 
     List<Author> getAll();
-    
+
     Author findByName(String name);
 
     List<Book> getSoldBooks(@NonNull Author author);
 
-    List<Author> getTopSellingAuthors(Date dateFrom, Date dateTo);
+    List<Author> getTopSellingAuthorsByDateRange(Date dateFrom, Date dateTo);
+
+    List<Author> getAuthorsFilteredByParams(
+            String name,
+            Integer amountOfBooks,
+            Integer earnings,
+            Integer amountOfSoldBooks
+    );
 }

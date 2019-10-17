@@ -55,8 +55,8 @@ public class AuthorControllerTest {
     private MockMvc mockMvc;
 
     @Test
-    public void getTopAuthors() throws Exception {
-        when(authorService.getTopSellingAuthors(any(), any()))
+    public void testGetTopSellingAuthorsByDateRange() throws Exception {
+        when(authorService.getTopSellingAuthorsByDateRange(any(), any()))
                 .thenReturn(Arrays.asList(
                         new Author().setId(AUTHOR1_ID),
                         new Author().setId(AUTHOR2_ID)));
@@ -67,6 +67,6 @@ public class AuthorControllerTest {
                 .andExpect(jsonPath("$[0].id").value(AUTHOR1_ID))
                 .andExpect(jsonPath("$[1].id").value(AUTHOR2_ID));
 
-        verify(authorService).getTopSellingAuthors(any(), any());
+        verify(authorService).getTopSellingAuthorsByDateRange(any(), any());
     }
 }

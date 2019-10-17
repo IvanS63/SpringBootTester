@@ -113,7 +113,7 @@ public class BookServicesTest extends AbstractJUnit4SpringContextTests {
 
     @Test
     public void testGetTopSellingAuthors() throws ParseException {
-        List<Author> authors = authorService.getTopSellingAuthors(dateFromString("January 2, 2010"), dateFromString("January 2, 2020"));
+        List<Author> authors = authorService.getTopSellingAuthorsByDateRange(dateFromString("January 2, 2010"), dateFromString("January 2, 2020"));
         assertEquals(5, authors.size());
     }
 

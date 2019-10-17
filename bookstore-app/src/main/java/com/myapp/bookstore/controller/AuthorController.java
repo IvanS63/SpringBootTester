@@ -19,6 +19,15 @@ import java.util.List;
 public interface AuthorController {
 
     @RequestMapping(method = RequestMethod.GET, path = "/top", produces = MediaType.APPLICATION_JSON_VALUE)
-    List<Author> getTopAuthors(@RequestParam("from") @DateTimeFormat(pattern = "yyyy-MM-dd") Date dateFrom,
-                                      @RequestParam("to") @DateTimeFormat(pattern = "yyyy-MM-dd") Date dateTo);
+    List<Author> getTopSellingAuthorsByDateRange(
+            @RequestParam(value = "from", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") Date dateFrom,
+            @RequestParam(value = "to", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") Date dateTo);
+
+    @RequestMapping(method = RequestMethod.GET, path = "/filter", produces = MediaType.APPLICATION_JSON_VALUE)
+    List<Author> getAuthorsFilteredByParams(
+            @RequestParam(value = "name", required = false) String name,
+            @RequestParam(value = "amountOfBooks", required = false) Integer amountOfBooks,
+            @RequestParam(value = "earnings", required = false) Integer earnings,
+            @RequestParam(value = "amountOfSoldBooks", required = false) Integer amountOfSoldBooks
+    );
 }

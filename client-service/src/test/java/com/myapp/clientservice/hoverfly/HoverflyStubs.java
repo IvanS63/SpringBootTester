@@ -1,5 +1,6 @@
 package com.myapp.clientservice.hoverfly;
 
+import static com.myapp.clientservice.hoverfly.bookstore.BookstoreStubs.getFilteredAuthors;
 import static com.myapp.clientservice.hoverfly.bookstore.BookstoreStubs.getTopAuthors;
 import static io.specto.hoverfly.junit.core.SimulationSource.dsl;
 
@@ -26,7 +27,8 @@ import java.io.IOException;
 public class HoverflyStubs {
 
     public static final SimulationSource SIMULATION_SOURCE = dsl(
-            getTopAuthors()
+            getTopAuthors(),
+            getFilteredAuthors()
     );
 
     /**

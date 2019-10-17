@@ -47,7 +47,15 @@ public class ClientApplicationIntegrationTest {
     
     @Test
     public void testGetTopAuthorsV1() throws Exception {
-        mockMvc.perform(get("/client-app/get-authors-v1")
+        mockMvc.perform(get("/client-app/get-top-authors-v1")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].name").value("Author"));
+    }
+
+    @Test
+    public void testGetFilteredAuthorsV1() throws Exception {
+        mockMvc.perform(get("/client-app/get-filtered-authors-v1")
                 .contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].name").value("Author"));
@@ -56,7 +64,16 @@ public class ClientApplicationIntegrationTest {
     @Test
     @Ignore //TODO investigate test failure
     public void testGetTopAuthorsV2() throws Exception {
-        mockMvc.perform(get("/client-app/get-authors-v2")
+        mockMvc.perform(get("/client-app/get-top-authors-v2")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].name").value("Author"));
+    }
+
+    @Test
+    @Ignore //TODO investigate test failure
+    public void testGetFilteredAuthorsV2() throws Exception {
+        mockMvc.perform(get("/client-app/get-filtered-authors-v2")
                 .contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].name").value("Author"));

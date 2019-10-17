@@ -26,13 +26,30 @@ public interface AuthorRepository extends JpaRepository<Author, Integer> {
             "ORDER BY month_total_price DESC " +
             "LIMIT 5";
 
+    String AUTHORS_FILTERED_BY_PARAMS_QUERY = "SELECT * FROM author a " +
+            "WHERE (:name IS NULL OR a.name LIKE %:name%) " +
+            "AND (:amountOfBooks IS NULL OR (SELECT COUNT(b.id) FROM book b WHERE b.author_id = a.id) >= :amountOfBooks) " +
+            "AND (:earnings IS NULL  OR (SELECT SUM(b.price) FROM book b WHERE b.author_id=a.id AND b.sold_date IS NOT NULL) >= :earnings) " +
+            "AND (:amountOfSoldBooks IS NULL OR (SELECT COUNT(b.id) FROM book b WHERE b.author_id=a.id AND b.sold_date IS NOT NULL) >= :amountOfSoldBooks)";
+
     @Query("SELECT b FROM Book b WHERE b.author.id = ?1 AND b.soldDate IS NOT NULL")
     List<Book> getSoldBooks(Integer authorId);
 
     @Query(value = TOP_AUTHORS_BY_MONTH_SOLD_BOOK_QUERY,
             nativeQuery = true)
-    List<Author> getTopSellingAuthors(@Param("dateFrom") Date dateFrom,
-                                      @Param("dateTo") Date dateTo);
+    List<Author> getTopSellingAuthorsByDateRange(
+            @Param("dateFrom") Date dateFrom,
+            @Param("dateTo") Date dateTo);
 
     Author findByName(String name);
+
+
+    @Query(value = AUTHORS_FILTERED_BY_PARAMS_QUERY,
+            nativeQuery = true)
+    List<Author> getAuthorsFilteredByParams(
+            @Param("name") String name,
+            @Param("amountOfBooks") Integer amountOfBooks,
+            @Param("earnings") Integer earnings,
+            @Param("amountOfSoldBooks") Integer amountOfSoldBooks
+    );
 }

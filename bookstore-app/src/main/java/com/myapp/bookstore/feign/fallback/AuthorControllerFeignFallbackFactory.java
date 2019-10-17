@@ -22,9 +22,16 @@ public class AuthorControllerFeignFallbackFactory implements FallbackFactory<Aut
     @Override
     public AuthorControllerFeign create(Throwable throwable) {
         return new AuthorControllerFeign() {
+
             @Override
-            public List<Author> getTopAuthors(Date dateFrom, Date dateTo) {
-                log.error("Using fallback method for getTopAuthors() because of an exception: {}", throwable);
+            public List<Author> getTopSellingAuthorsByDateRange(Date dateFrom, Date dateTo) {
+                log.error("Using fallback method for getTopSellingAuthorsByDateRange() because of an exception: {}", throwable);
+                return Collections.emptyList();
+            }
+
+            @Override
+            public List<Author> getAuthorsFilteredByParams(String name, Integer amountOfBooks, Integer earnings, Integer amountOfSoldBooks) {
+                log.error("Using fallback method for getAuthorsFilteredByParams() because of an exception: {}", throwable);
                 return Collections.emptyList();
             }
         };
