@@ -43,8 +43,8 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        
-        
+
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -60,13 +60,13 @@
             <groupId>com.netflix.ribbon</groupId>
             <artifactId>ribbon-eureka</artifactId>
         </dependency>
-        
+
         <!-- For exception handling and custom ErrorController implementation -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
-        
+
         <dependency>
             <groupId>com.myapp</groupId>
             <artifactId>bookstore-app</artifactId>
@@ -75,6 +75,14 @@
                 <exclusion>
                     <groupId>org.liquibase</groupId>
                     <artifactId>liquibase-core</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.myapp</groupId>
+                    <artifactId>kafka-client-app</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework.kafka</groupId>
+                    <artifactId>spring-kafka</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>
