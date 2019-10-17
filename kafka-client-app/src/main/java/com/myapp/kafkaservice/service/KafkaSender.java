@@ -32,12 +32,12 @@ public class KafkaSender {
         future.addCallback(new ListenableFutureCallback<SendResult<String, SendRequestDto>>() {
             @Override
             public void onSuccess(SendResult<String, SendRequestDto> result) {
-                log.debug("Sent message=[{}] with offset=[{}]", result, result.getRecordMetadata().offset());
+                log.info("Sent message=[{}] with offset=[{}]", result, result.getRecordMetadata().offset());
             }
 
             @Override
             public void onFailure(Throwable ex) {
-                log.error("Unable to send message=[{}] due to : {}", msg, ex.getMessage());
+                log.info("Unable to send message=[{}] due to : {}", msg, ex.getMessage());
             }
         });
     }

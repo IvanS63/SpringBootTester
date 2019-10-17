@@ -14,6 +14,8 @@
     <groupId>com.myapp</groupId>
     <artifactId>kafka-client-app</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <name>Kafka Client App</name>
+    <description>Simple Kafka Application</description>
 
     <dependencies>
         <dependency>

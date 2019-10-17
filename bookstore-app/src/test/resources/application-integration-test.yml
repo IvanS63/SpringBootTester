@@ -21,7 +21,6 @@ spring:
       dialect: org.hibernate.dialect.HSQLDialect
     show-sql: true
     
-   
   liquibase:
     enabled: true
     
@@ -37,6 +36,7 @@ eureka:
     fetch-registry: false
     enabled: false
     
+#this property is used for enabling Kafka-related configuration classes and beans
 kafka:
   enabled: false
     

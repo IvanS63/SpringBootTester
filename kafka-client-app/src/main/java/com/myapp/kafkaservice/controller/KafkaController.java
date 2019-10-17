@@ -16,7 +16,7 @@ import java.util.Collections;
 import java.util.Date;
 
 /**
- * KafkaController.
+ * Class with Rest API endpoints for generating Kafka requests.
  *
  * @author Ivan_Semenov
  */
@@ -27,17 +27,36 @@ public class KafkaController {
     @Autowired
     private KafkaSender kafkaSender;
 
-    @GetMapping(value = "/send-message", produces = MediaType.APPLICATION_JSON_VALUE)
-    public void sendMessage() {
-        SendRequestDto sendRequestDto = new SendRequestDto()
-                .setUpdateEventType(UpdateEventType.CREATE)
+    /**
+     * Generate and send CREATE author request.
+     */
+    @GetMapping(value = "/send-create-message", produces = MediaType.APPLICATION_JSON_VALUE)
+    public void sendCreateMessage() {
+        kafkaSender.sendMessage(generateHardcodedRequest(UpdateEventType.CREATE));
+    }
+
+    /**
+     * Generate and send DELETE author request.
+     */
+    @GetMapping(value = "/send-delete-message", produces = MediaType.APPLICATION_JSON_VALUE)
+    public void sendDeleteMessage() {
+        kafkaSender.sendMessage(generateHardcodedRequest(UpdateEventType.DELETE));
+    }
+
+    /**
+     * Just generate simple hardcoded request DTO.
+     *
+     * @param updateEventType
+     * @return
+     */
+    private SendRequestDto generateHardcodedRequest(UpdateEventType updateEventType) {
+        return new SendRequestDto()
+                .setUpdateEventType(updateEventType)
                 .setAuthor(new AuthorDto().setName("John Tolkien")
                         .setBooks(Collections.singletonList(
                                 new BookDto()
                                         .setTitle("Lord of The Rings")
                                         .setSold(new Date())))
                 );
-
-        kafkaSender.sendMessage(sendRequestDto);
     }
 }

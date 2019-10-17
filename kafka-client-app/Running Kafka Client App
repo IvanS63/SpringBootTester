@@ -1,0 +1,12 @@
+Requirements: download and install Docker and Kafka server.
+
+Kafka server setup:
+1) From kafka directory start zookeeper: bin/zookeeper-server-start.sh config/zookeeper.properties
+    (Zookeeper runs on 2181 port by default (zookeeper.properties). Can be killed by task manager process PID)
+2) Start kafka server from kafka directory: bin/kafka-server-start.sh config/server.properties
+3) Check list of exiting topics: bin/kafka-topics.sh --list --zookeeper localhost:2181
+4) Check all consumers: bin/kafka-consumer-groups.sh  --list --bootstrap-server localhost:9092
+
+Checking app functionality:
+1) http://localhost:8092/kafka-app/send-create-message  - for sending CREATE Kafka request.
+2) http://localhost:8092/kafka-app/send-delete-message  - for sending DELETE Kafka request.

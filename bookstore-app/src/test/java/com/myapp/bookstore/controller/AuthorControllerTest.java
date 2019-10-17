@@ -12,6 +12,7 @@ import com.myapp.bookstore.repository.AuthorRepository;
 import com.myapp.bookstore.repository.BookRepository;
 import com.myapp.bookstore.service.AuthorService;
 import com.myapp.bookstore.service.BookService;
+import ma.glasnost.orika.MapperFacade;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +45,9 @@ public class AuthorControllerTest {
     @MockBean
     private BookRepository bookRepository;
 
+    @MockBean
+    private MapperFacade mapperFacade;
+    
     @MockBean
     private BookService bookService;
 

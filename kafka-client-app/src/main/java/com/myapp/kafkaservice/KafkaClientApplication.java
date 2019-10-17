@@ -13,7 +13,11 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan({"com.myapp.kafkaservice"})
 public class KafkaClientApplication {
 
-    //To test go to: http://localhost:8092/kafka-app/send-message
+    /**
+     * To test go to:
+     * http://localhost:8092/kafka-app/send-create-message  - for sending CREATE Kafka request.
+     * http://localhost:8092/kafka-app/send-delete-message  - for sending DELETE Kafka request.
+     */
     public static void main(String[] args) {
         SpringApplication.run(KafkaClientApplication.class, args);
     }

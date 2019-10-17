@@ -55,6 +55,10 @@ ribbon:
 feign:
   hystrix:
     enabled: true
+
+#this property is used for enabling Kafka-related configuration classes and beans
+kafka:
+  enabled: true      
         
 kafka-service-app:
   bootstrap-servers: localhost:9092

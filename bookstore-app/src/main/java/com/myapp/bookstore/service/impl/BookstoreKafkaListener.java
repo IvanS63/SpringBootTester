@@ -35,12 +35,16 @@ public class BookstoreKafkaListener {
     public void receiveMessage(SendRequestDto sendRequestDto) {
         log.debug("Received request {} from topic: ", sendRequestDto, "author-request-dto");
         UpdateEventType updateEventType = sendRequestDto.getUpdateEventType();
+        Author author = authorService.findByName(sendRequestDto.getAuthor().getName());
         switch (updateEventType) {
             case CREATE:
-                authorService.add(mapperFacade.map(sendRequestDto.getAuthor(), Author.class));
+                if (Objects.nonNull(author)) {
+                    log.warn("Author with name = {} already exists in the database", author.getName());
+                } else {
+                    authorService.add(mapperFacade.map(sendRequestDto.getAuthor(), Author.class));
+                }
                 break;
             case DELETE:
-                Author author = authorService.findByName(sendRequestDto.getAuthor().getName());
                 if (Objects.nonNull(author)) {
                     authorService.remove(author);
                 } else {
