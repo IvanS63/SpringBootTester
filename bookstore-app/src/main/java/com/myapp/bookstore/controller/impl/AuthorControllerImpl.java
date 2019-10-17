@@ -2,7 +2,6 @@ package com.myapp.bookstore.controller.impl;
 
 import com.myapp.bookstore.controller.AuthorController;
 import com.myapp.bookstore.entity.Author;
-import com.myapp.bookstore.entity.Book;
 import com.myapp.bookstore.service.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -26,8 +25,13 @@ public class AuthorControllerImpl implements AuthorController {
     private AuthorService authorService;
 
     @Override
-    public List<Author> getTopAuthors(@RequestParam("from") @DateTimeFormat(pattern = "yyyy-MM-dd") Date dateFrom,
-                                      @RequestParam("to") @DateTimeFormat(pattern = "yyyy-MM-dd") Date dateTo) {
-        return authorService.getTopSellingAuthors(dateFrom, dateTo);
+    public List<Author> getTopSellingAuthorsByDateRange(@RequestParam("from") @DateTimeFormat(pattern = "yyyy-MM-dd") Date dateFrom,
+                                                        @RequestParam("to") @DateTimeFormat(pattern = "yyyy-MM-dd") Date dateTo) {
+        return authorService.getTopSellingAuthorsByDateRange(dateFrom, dateTo);
+    }
+
+    @Override
+    public List<Author> getAuthorsFilteredByParams(String name, Integer amountOfBooks, Integer earnings, Integer amountOfSoldBooks) {
+        return authorService.getAuthorsFilteredByParams(name, amountOfBooks, earnings, amountOfSoldBooks);
     }
 }

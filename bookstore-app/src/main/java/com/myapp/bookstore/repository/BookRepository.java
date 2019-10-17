@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
  * @author Ivan_Semenov
  */
 @Repository
-public interface BookDao extends JpaRepository<Book, Integer> {
+public interface BookRepository extends JpaRepository<Book, Integer> {
 
     @Transactional
     @Modifying

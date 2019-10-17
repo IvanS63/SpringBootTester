@@ -13,7 +13,7 @@
     <groupId>com.myapp</groupId>
     <artifactId>client-service</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>Client App</name>
+    <name>Rest Client App</name>
     <description>Imitates simple client app</description>
 
     <properties>

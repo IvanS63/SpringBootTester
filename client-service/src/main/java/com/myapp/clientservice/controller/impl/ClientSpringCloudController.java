@@ -28,12 +28,28 @@ public class ClientSpringCloudController implements ClientController {
     @Autowired
     private AuthorControllerFeign authorControllerFeign;
 
-    @RequestMapping(method = RequestMethod.GET, value = "/get-authors-v2")
+    @RequestMapping(method = RequestMethod.GET, value = "/get-top-authors-v2")
     @Override
     public List<Author> getTopAuthorsFromBookstoreApp() {
         log.debug("getTopAuthorsFromBookstoreApp() - start:");
         List<Author> authors = authorControllerFeign
-                .getTopAuthors(getDateFromString("January 1, 1990"), getDateFromString("January 1, 2020"));
+                .getTopSellingAuthorsByDateRange(getDateFromString("January 1, 1990"), getDateFromString("January 1, 2020"));
+        log.info("Response received: {}", authors);
+        log.debug("getTopAuthorsFromBookstoreApp() - end:");
+        return authors;
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/get-filtered-authors-v2")
+    @Override
+    public List<Author> getFilteredAuthorsFromBookStoreApp() {
+        log.debug("getTopAuthorsFromBookstoreApp() - start:");
+        List<Author> authors = authorControllerFeign
+                .getBuilder()
+                .name(null)
+                .amountOfBooks(0)
+                .amountOfSoldBooks(0)
+                .earnings(0)
+                .execute();
         log.info("Response received: {}", authors);
         log.debug("getTopAuthorsFromBookstoreApp() - end:");
         return authors;

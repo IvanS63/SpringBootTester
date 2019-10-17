@@ -15,4 +15,6 @@ import java.util.List;
 public interface ClientController {
 
     List<Author> getTopAuthorsFromBookstoreApp();
+    
+    List<Author> getFilteredAuthorsFromBookStoreApp();
 }

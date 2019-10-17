@@ -13,6 +13,13 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan({"com.myapp.clientservice"})
 public class ClientApplication {
 
+    /**
+     * To test: http://localhost:8091/client-app/get-top-authors-v1
+     * To test: http://localhost:8091/client-app/get-filtered-authors-v1
+     * To test: http://localhost:8091/client-app/get-top-authors-v2
+     * To test: http://localhost:8091/client-app/get-filtered-authors-v2
+     * @param args
+     */
     public static void main(String[] args) {
         SpringApplication.run(ClientApplication.class, args);
     }
