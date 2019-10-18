@@ -5,3 +5,5 @@ timeout /t 10
 start "Bookstore App" java -jar bookstore-app/target/bookstore-app-1.0-SNAPSHOT.jar
 timeout /t 10
 start "Client Rest App" java -jar client-service/target/client-service-1.0-SNAPSHOT.jar
+timeout /t 10
+start "Kafka Client App" java -jar kafka-client-app/target/kafka-client-app-1.0-SNAPSHOT.jar
