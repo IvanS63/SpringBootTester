@@ -19,7 +19,6 @@ spring:
     hibernate:
       ddl-auto: none
       dialect: org.hibernate.dialect.HSQLDialect
-    show-sql: true
     
    
   liquibase:
@@ -29,6 +28,10 @@ logging:
   level:
     org.springframework.web: ERROR
     myapp.bookstore: DEBUG
+    # logs the SQL statements
+    # org.hibernate.SQL: DEBUG
+    # Logs the JDBC parameters passed to a query
+    # org.hibernate.type: TRACE
   
 eureka:
   client:
