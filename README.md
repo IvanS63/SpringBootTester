@@ -9,6 +9,7 @@ Simple example for Spring Cloud+Spring Boot applications.
 - Spring Data JPA
 - HSQLDB
 - Liquibase
+- Kafka
 
 
 
@@ -33,14 +34,17 @@ Integration and unit tests are provided.
 ### Eureka Server Application
 Represents simple Application for Service Discovery
 
-
 ### Client Rest Application
 Represents simple Client Application that sends requests to Bookstore Application with the help of RestTemplate and Feign Clients.
+
+### Kafka Client Appllication
+Represents simple Kafka application that sends create and delete requests to Bookstore App bia Kafka messages. Full information is provided in **Running Kafka Client App.txt** file. 
 
 
 Workflow
 ========
-1. Run **Application Runner.bat** file (that runs applications in following order: Eureka Server > Bookstore App > Client Rest App).
+1. Run **Application Runner.bat** file (that runs applications in following order: Eureka Server > Kafka App > Bookstore App > Client Rest App).
 2. Eureka Server App can be checked from http://localhost:8761/.
 3. Bookstore App can be checked from http://localhost:8090/book-store/authors/top?from=1990-01-01&to=2020-01-01 and http://localhost:8090//book-store/authors/filter?name=Straub&amountOfBooks=3&earnings=1000&amountOfSoldBooks=3.
 4. Client App be checked from http://localhost:8091/client-app/get-top-authors-v1 - for checking Rest Template Functionality, http://localhost:8091/client-app/get--top-authors-v2 - to check Feign Client example). Sometimes there can be errors with loading data (in case Eureka hasn't registered applications, this can be fixed by setting smaller timeout settings).
+5. Kafka Client App can be checked via http://localhost:8092/kafka-app/send-create-message and http://localhost:8092/kafka-app/send-delete-message (messages can be checked in server logs). 
