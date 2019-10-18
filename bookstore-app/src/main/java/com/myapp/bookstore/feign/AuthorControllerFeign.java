@@ -28,6 +28,7 @@ public interface AuthorControllerFeign extends AuthorController {
     }
 
     class Builder {
+        
         private String name;
         private Integer amountOfBooks;
         private Integer earnings;
@@ -48,13 +49,11 @@ public interface AuthorControllerFeign extends AuthorController {
             this.amountOfBooks = amountOfBooks;
             return this;
         }
-
-
+        
         public Builder earnings(final Integer earnings) {
             this.earnings = earnings;
             return this;
         }
-
 
         public Builder amountOfSoldBooks(final Integer amountOfSoldBooks) {
             this.amountOfSoldBooks = amountOfSoldBooks;

@@ -29,9 +29,9 @@ logging:
     org.springframework.web: ERROR
     myapp.bookstore: DEBUG
     # logs the SQL statements
-    org.hibernate.SQL: DEBUG
+    # org.hibernate.SQL: DEBUG
     # Logs the JDBC parameters passed to a query
-    org.hibernate.type: TRACE 
+    # org.hibernate.type: TRACE 
   file: ${java.io.tmpdir}/application.log
   pattern.file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
   
